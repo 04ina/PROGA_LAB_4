@@ -23,10 +23,15 @@ public class Main {
         rawPage.Read(1247, ForkType.VM_FORK, 0);
 
         Page page = new Page(1247, ForkType.VM_FORK, 0);
-        System.out.println("pd_pagesize_version:" + page.getHeader().pd_pagesize_version);
+        System.out.println("pd_pagesize_version: " + page.getHeader().pd_pagesize_version);
 
-        VMPage vmPage = new VMPage(1247, ForkType.VM_FORK, 0);
+        VMPage vmPage = new VMPage(1247, 0);
         vmPage.printRawData();
+
+        FSMPage fsmPage = new FSMPage(1247, 0);
+        vmPage.printRawData();
+
+
     }
 
 }

@@ -2,8 +2,8 @@ class FSMPage extends Page {
     private RawPage rawContent;
     private static final int RAW_PAGE_SIZE = 8192;
 
-    public FSMPage(int relOid, ForkType fork, int pageNumber) {
-        super(relOid, fork, pageNumber);
+    public FSMPage(int relOid, int pageNumber) {
+        super(relOid, ForkType.FSM_FORK, pageNumber);
     }
 
     public void printRawData() {

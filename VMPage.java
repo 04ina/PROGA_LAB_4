@@ -1,8 +1,8 @@
 class VMPage extends Page {
     private static final int RAW_PAGE_SIZE = 8192;
 
-    public VMPage(int relOid, ForkType fork, int pageNumber) {
-        super(relOid, fork, pageNumber);
+    public VMPage(int relOid, int pageNumber) {
+        super(relOid, ForkType.VM_FORK, pageNumber);
     }
 
     public void printRawData() {
