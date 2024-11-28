@@ -29,8 +29,10 @@ public class Main {
         vmPage.printRawData();
 
         FSMPage fsmPage = new FSMPage(1247, 0);
-        vmPage.printRawData();
+        fsmPage.printRawData();
 
+        PageHandler pageHandler = new PageHandler();
+        pageHandler.printRawFSMPage(1247, 0);
 
     }
 
