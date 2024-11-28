@@ -1,5 +1,4 @@
 class FSMPage extends Page {
-    private RawPage rawContent;
     private static final int RAW_PAGE_SIZE = 8192;
 
     public FSMPage(int relOid, int pageNumber) {

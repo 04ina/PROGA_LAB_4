@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) {
@@ -26,14 +27,24 @@ public class Main {
         System.out.println("pd_pagesize_version: " + page.getHeader().pd_pagesize_version);
 
         VMPage vmPage = new VMPage(1247, 0);
+        System.out.println("Содержимое файла 1247_vm:");
         vmPage.printRawData();
+        System.out.println();
 
         FSMPage fsmPage = new FSMPage(1247, 0);
+        System.out.println("Содержимое файла 1247_fsm:");
         fsmPage.printRawData();
+        System.out.println();
 
         PageHandler pageHandler = new PageHandler();
-        pageHandler.printRawFSMPage(1247, 0);
 
+        System.out.println("Содержимое файла 1247_fsm:");
+        pageHandler.printRawFSMPage(1247, 0);
+        System.out.println();
+
+        System.out.println("Содержимое файла 1247_vm:");
+        pageHandler.printRawVMPage(1247, 0);
+        System.out.println();
     }
 
 }
