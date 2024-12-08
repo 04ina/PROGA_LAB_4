@@ -45,6 +45,23 @@ public class Main {
         System.out.println("Содержимое файла 1247_vm:");
         pageHandler.printRawVMPage(1247, 0);
         System.out.println();
-    }
+        System.out.println();
 
+
+       FSMPage[] fsmPages = {
+            new FSMPage(1247, 0),
+            new FSMPage(1247, 0),
+            new FSMPage(1247, 0),
+            new FSMPage(1247, 0)
+        };
+
+        for (int i = 0; i < 4; i++) {
+            fsmPages[i].printRawData();
+            System.out.println();
+        }
+
+        PageMetaInfo pmi = page.GetMetaInfo();
+
+        System.out.println("RAW_PAGE_SIZE (in bits): " + RelFile.Get_RAW_PAGE_SIZE());
+    }
 }

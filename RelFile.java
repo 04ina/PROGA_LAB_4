@@ -8,6 +8,10 @@ public class RelFile {
     static ForkType fork;
     private static final int RAW_PAGE_SIZE = 8192;
 
+    public static int Get_RAW_PAGE_SIZE() {
+        return RAW_PAGE_SIZE;
+    }
+
     public RelFile(int relOid, ForkType forkType)
     {
         oid = relOid;

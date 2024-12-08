@@ -24,4 +24,9 @@ public class Page {
         return pageHeader;
     }
 
+    public PageMetaInfo GetMetaInfo()
+    {
+        return new PageMetaInfo(number, fork, relOid);
+    }
+
 }
