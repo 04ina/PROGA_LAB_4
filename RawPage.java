@@ -1,11 +1,16 @@
 import java.io.IOException;
 
-public class RawPage {
+public class RawPage implements Cloneable {
        public byte[] data;
 
        public RawPage()
        {
             data = new byte[8192];
+       }
+
+       @Override
+       protected Object clone() throws CloneNotSupportedException {
+           return super.clone();
        }
 
         public boolean Read(int relOid, ForkType forkType, int pageNumber)

@@ -1,10 +1,10 @@
-public class Page {
+abstract public class Page {
     private PageHeader pageHeader;
-    public RawPage rawContent;
+    protected RawPage rawContent;
     private int number;
     private ForkType fork;
     int relOid;
-    private static final int RAW_PAGE_SIZE = 8192;
+    protected static final int RAW_PAGE_SIZE = 8192;
 
     public Page(int relPageOid, ForkType forkType,  int pageNumber)
     {
@@ -18,6 +18,18 @@ public class Page {
         fork = forkType;
         relOid = relPageOid;
     }
+
+    public abstract void printRawData();
+
+    public void GetPageInfo(PageMetaInfo mi)
+    {
+        mi = this.GetMetaInfo();
+    }
+/*
+    public void GetPageInfo(Page page) {
+        page = new Page(relOid, fork, number);
+    }
+ */
 
     public PageHeader getHeader()
     {

@@ -23,8 +23,8 @@ public class Main {
 
         rawPage.Read(1247, ForkType.VM_FORK, 0);
 
-        Page page = new Page(1247, ForkType.VM_FORK, 0);
-        System.out.println("pd_pagesize_version: " + page.getHeader().pd_pagesize_version);
+        //Page page = new Page(1247, ForkType.VM_FORK, 0);
+        //System.out.println("pd_pagesize_version: " + page.getHeader().pd_pagesize_version);
 
         VMPage vmPage = new VMPage(1247, 0);
         System.out.println("Содержимое файла 1247_vm:");
@@ -53,15 +53,22 @@ public class Main {
             new FSMPage(1247, 0),
             new FSMPage(1247, 0),
             new FSMPage(1247, 0)
-        };
+       };
 
-        for (int i = 0; i < 4; i++) {
-            fsmPages[i].printRawData();
-            System.out.println();
-        }
+       for (int i = 0; i < 4; i++) {
+           fsmPages[i].printRawData();
+           System.out.println();
+       }
 
-        PageMetaInfo pmi = page.GetMetaInfo();
+       //PageMetaInfo pmi = page.GetMetaInfo();
 
-        System.out.println("RAW_PAGE_SIZE (in bits): " + RelFile.Get_RAW_PAGE_SIZE());
+       System.out.println("RAW_PAGE_SIZE (in bits): " + RelFile.Get_RAW_PAGE_SIZE());
+       try {
+           VMPage vmp1 = vmPage.clone();
+           VMPage vmp2 = vmPage.deepClone();
+       } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+       }
+
     }
 }
