@@ -1,4 +1,4 @@
-abstract public class Page {
+public class Page {
     private PageHeader pageHeader;
     protected RawPage rawContent;
     private int number;
@@ -19,7 +19,15 @@ abstract public class Page {
         relOid = relPageOid;
     }
 
-    public abstract void printRawData();
+    public int GetNumber()
+    {
+        return number;
+    }
+
+    public void PrintMainPageData()
+    {
+        System.out.println("number: " + number + " fork: " + fork + " relOid: " + relOid);
+    }
 
     public void GetPageInfo(PageMetaInfo mi)
     {

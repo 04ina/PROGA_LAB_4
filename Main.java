@@ -1,5 +1,9 @@
 import java.io.IOException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -70,5 +74,39 @@ public class Main {
             e.printStackTrace();
        }
 
+      List<Page> pageList = new ArrayList<>();
+
+        // Добавляем объекты базового и производного классов
+        pageList.add(new Page(1247, ForkType.FSM_FORK, 2));
+        pageList.add(new FSMPage(1247, 1));
+        pageList.add(new FSMPage(1247, 0));
+
+        // Вывод
+        System.out.println("pages:");
+        for (Page curPage : pageList) {
+            curPage.PrintMainPageData();
+        }
+
+        // Сортировка по номеру
+        Collections.sort(pageList, Comparator.comparing(Page::GetNumber));
+
+        // Вывод
+        System.out.println("Sorted pages:");
+        for (Page curPage : pageList) {
+            curPage.PrintMainPageData();
+        }
+
+        // Поиск
+        int searchPageWithNumber = 2;
+        Page foundPage = pageList.stream()
+                .filter(curPage -> curPage.GetNumber() == searchPageWithNumber)
+                .findFirst()
+                .orElse(null);
+
+        if (foundPage != null) {
+            System.out.println("\n Page found.");
+        } else {
+            System.out.println("\nPage not found.");
+        }
     }
 }

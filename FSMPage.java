@@ -4,7 +4,6 @@ class FSMPage extends Page {
         super(relOid, ForkType.FSM_FORK, pageNumber);
     }
 
-    @Override
     public void printRawData() {
         for (int i = 0; i < RAW_PAGE_SIZE; i++) {
             System.out.printf("%d ",
